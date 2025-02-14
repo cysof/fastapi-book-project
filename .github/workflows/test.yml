@@ -1,6 +1,4 @@
-# .github/workflows/test.yml
-name: Test FastAPI Application
-
+name: test 
 # Defines when the action will run
 on:
   pull_request:
@@ -35,5 +33,4 @@ jobs:
     
     # Run the test suite with coverage reporting
     - name: Run tests
-      run: |
-        pytest -v --cov=./ --cov-report=xml
+      run: pytest
