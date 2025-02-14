@@ -65,12 +65,12 @@ async def delete_book(book_id: int) -> None:
     return JSONResponse(status_code=status.HTTP_204_NO_CONTENT, content=None)
 
 # implememtation of the get api for api/v1/books/{book_id}
-#@router.get("/{book_id}", response_model=Book, status_code=status.HTTP_200_OK)
-#async def get_book(book_id: int)-> Book:
-#
- #   book = db.get_book(book_id)
-  #  if book is None:
-   #     raise HTTPException(
-    #        status_code=status.HTTP_404_NOT_FOUND, detail="Book not found"
-    #    )
-   # return book
+@router.get("/{book_id}", response_model=Book, status_code=status.HTTP_200_OK)
+async def get_book(book_id: int)-> Book:
+
+    book = db.get_book(book_id)
+    if book is None:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail="Book not found"
+        )
+    return book
