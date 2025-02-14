@@ -79,8 +79,8 @@ async def get_book(book_id: int)-> Book:
         HTTPException: If the book is not found, raises a 404 error.
     """
 
-    book = db.get_book(book_id)
-    if book is None:
+    book = db.books.get(book_id)
+    if not book:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND, detail="Book not found"
         )
