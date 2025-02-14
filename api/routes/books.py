@@ -67,17 +67,6 @@ async def delete_book(book_id: int) -> None:
 # implememtation of the get api for api/v1/books/{book_id}
 @router.get("/{book_id}", response_model=Book, status_code=status.HTTP_200_OK)
 async def get_book(book_id: int)-> Book:
-    """Retrieves a specific book by its ID.
-
-    Args:
-        book_id (int): The ID of the book to retrieve.
-
-    Returns:
-        Book: The book object if found.
-
-    Raises:
-        HTTPException: If the book is not found, raises a 404 error.
-    """
 
     book = db.get_book(book_id)
     if book is None:
